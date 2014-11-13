@@ -1,0 +1,13 @@
+---
+galaxy_info:
+  author: Abubakr-Sadik Nii Nai Davis
+  description: add users and groups to a Linux host.
+  license: BSD
+  min_ansible_version: 1.2
+  platforms:
+  - name: GenericLinux
+    versions:
+    - all
+  categories:
+  - system
+dependencies: []

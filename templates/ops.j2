@@ -1,0 +1,8 @@
+#{{ansible_managed}}
+{% for group in user_groups %}
+{% if group.name == "ops" %}
+{% for user in group.members %}
+{{user.name}} 	ALL=NOPASSWD: ALL
+{% endfor %}
+{% endif %}
+{% endfor %}

@@ -1,0 +1,10 @@
+---
+
+- name: authorize public key login
+  authorized_key:
+    user: "{{item.1.name}}"
+    key: "{{item.1.key}}"
+  when: item.0.name == "{{group}}"
+  with_subelements:
+    - user_groups
+    - members

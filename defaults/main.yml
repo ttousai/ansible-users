@@ -1,0 +1,15 @@
+---
+
+# keys are kept under files/keys
+# use {{lookup('file', 'files/keys/name')}}
+
+group: ops
+
+user_groups:
+  - name: "ops"
+    gid: 2000
+    members:
+      - name: "bofh"
+        uid: 2001
+        comment: "BOFH"
+        key: ""

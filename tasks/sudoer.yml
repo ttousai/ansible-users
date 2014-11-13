@@ -1,0 +1,9 @@
+---
+
+- name: make sudoers entry for group
+  template:
+    src: "{{group}}.j2"
+    dest: "/etc/sudoers.d/{{group}}"
+    mode: 0440
+    validate: "visudo -cf %s"
+  ignore_errors: True

@@ -1,0 +1,21 @@
+---
+
+- name: create user group
+  group:
+    name: "{{item.name}}"
+    gid: "{{item.gid}}"
+  when: item.name == "{{group}}"
+  with_items: user_groups
+
+- name: create users
+  user:
+    name: "{{item.1.name}}"
+    comment: "{{item.1.comment}}"
+    uid: "{{item.1.uid}}"
+    groups: "{{item.0.name}}"
+    state: present
+  when: item.0.name == "{{group}}"
+  with_subelements: 
+    - user_groups
+    - members
+  ignore_errors: True
